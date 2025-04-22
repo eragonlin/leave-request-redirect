@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script>
+    window.onload = function () {
+      fetch("YOUR_WEB_APP_URL_HERE")
+        .then(response => response.text())
+        .then(status => {
+          status = status.trim().toLowerCase();
+          if (status === "success") {
+            window.location.href = "https://sites.google.com/ff72.fr/request-to-leave-test/success";
+          } else {
+            window.location.href = "https://sites.google.com/ff72.fr/request-to-leave-test/error";
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching status:", error);
+          window.location.href = "https://sites.google.com/ff72.fr/request-to-leave-test/error";
+        });
+    };
+  </script>
+</head>
+<body>
+  <p>Checking your request and redirecting...</p>
+</body>
+</html>
